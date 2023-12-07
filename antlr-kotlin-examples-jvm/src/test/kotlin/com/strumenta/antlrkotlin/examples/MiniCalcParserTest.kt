@@ -1,5 +1,7 @@
 package com.strumenta.antlrkotlin.examples
 
+import com.strumenta.antlrkotlin.parsers.generated.MiniCalcLexer
+import com.strumenta.antlrkotlin.parsers.generated.MiniCalcParser
 import org.antlr.v4.kotlinruntime.CharStreams
 import org.antlr.v4.kotlinruntime.CommonTokenStream
 import org.antlr.v4.kotlinruntime.ast.Point

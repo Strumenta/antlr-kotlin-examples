@@ -1,5 +1,6 @@
 package com.strumenta.antlrkotlin.examples
 
+import com.strumenta.antlrkotlin.parsers.generated.MiniCalcLexer
 import org.antlr.v4.kotlinruntime.CharStreams
 import org.antlr.v4.kotlinruntime.atn.EmptyPredictionContext
 import org.antlr.v4.kotlinruntime.atn.PredictionContext
