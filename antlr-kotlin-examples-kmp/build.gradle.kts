@@ -11,7 +11,8 @@ val antlrKotlinVersion = extra["antlrKotlinVersion"]
 
 kotlin {
     jvm()
-    js {
+    js(IR) {
+        binaries.executable()
         browser {
 
         }
