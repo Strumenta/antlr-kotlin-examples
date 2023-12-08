@@ -1,5 +1,5 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm")
+    //id("org.jetbrains.kotlin.jvm")
 }
 
 repositories {
@@ -11,5 +11,4 @@ tasks {
         gradleVersion = "8.3"
         distributionType = Wrapper.DistributionType.ALL
     }
-
 }
