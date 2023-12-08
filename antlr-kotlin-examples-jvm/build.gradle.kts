@@ -10,7 +10,7 @@ plugins {
 
 repositories {
     // used for local development and while building by travis ci and jitpack.io
-    mavenLocal()
+    //mavenLocal()
     // used to download antlr4
     mavenCentral()
     // used to download antlr-kotlin-runtime
