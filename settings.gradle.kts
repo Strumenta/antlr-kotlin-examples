@@ -13,3 +13,4 @@ pluginManagement {
 
 rootProject.name = "antlr-kotlin-examples"
 include("antlr-kotlin-examples-jvm")
+include("antlr-kotlin-examples-kmp")
