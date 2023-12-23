@@ -16,10 +16,10 @@ repositories {
 }
 
 kotlin {
-//    wasmWasi {
-//        nodejs()
-//        binaries.executable()
-//    }
+    wasmWasi {
+        //nodejs()
+        binaries.executable()
+    }
 
     wasmJs {
         browser()
