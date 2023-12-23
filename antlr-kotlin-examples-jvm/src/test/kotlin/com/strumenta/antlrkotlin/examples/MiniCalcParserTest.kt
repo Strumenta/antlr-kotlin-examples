@@ -5,7 +5,7 @@ import com.strumenta.antlrkotlin.parsers.generated.MiniCalcParser
 import org.antlr.v4.kotlinruntime.CharStreams
 import org.antlr.v4.kotlinruntime.CommonTokenStream
 import org.antlr.v4.kotlinruntime.ast.Point
-import org.antlr.v4.kotlinruntime.ast.pos
+import org.antlr.v4.kotlinruntime.ast.Position
 import org.antlr.v4.kotlinruntime.tree.TerminalNode
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -112,6 +112,6 @@ class TestingParser {
         val parser = MiniCalcParser(CommonTokenStream(lexer))
 
         val root = parser.miniCalcFile()
-        assertEquals(pos(1, 0, 2, 0), root.position)
+        assertEquals(Position(1, 0, 2, 0), root.position)
     }
 }

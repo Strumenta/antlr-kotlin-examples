@@ -6,10 +6,11 @@ pluginManagement {
         mavenCentral()
     }
 
-    plugins {
-        id("org.jetbrains.kotlin.jvm") version kotlinVersion
-    }
+//    plugins {
+//        id("org.jetbrains.kotlin.jvm") version kotlinVersion
+//    }
 }
 
 rootProject.name = "antlr-kotlin-examples"
 include("antlr-kotlin-examples-jvm")
+include("antlr-kotlin-examples-wasi")

@@ -3,7 +3,7 @@ import org.gradle.model.internal.core.ModelNodes.withType
 import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
 
 plugins {
-    id("org.jetbrains.kotlin.jvm")
+    id("org.jetbrains.kotlin.jvm") version "1.9.22"
     antlr
 }
 

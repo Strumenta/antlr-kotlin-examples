@@ -1,0 +1,13 @@
+{
+  "name": "antlr-kotlin-examples-antlr-kotlin-examples-wasi-wasm-wasi-test",
+  "version": "0.0.0-unspecified",
+  "main": "antlr-kotlin-examples-antlr-kotlin-examples-wasi-wasm-wasi-test.js",
+  "types": "antlr-kotlin-examples-antlr-kotlin-examples-wasi-wasm-wasi-test.d.ts",
+  "devDependencies": {},
+  "dependencies": {
+    "format-util": "^1.0.5"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": []
+}
