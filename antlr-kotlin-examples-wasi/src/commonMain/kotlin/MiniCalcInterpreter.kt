@@ -8,6 +8,8 @@ import org.antlr.v4.kotlinruntime.Recognizer
 
 class MiniCalcInterpreter {
 
+    val vars = mutableMapOf<String, Any>()
+
     fun interpret(code: String) : MiniCalcResult {
         val lexer = MiniCalcLexer(CharStreams.fromString(code))
         lexer.removeErrorListeners()
@@ -42,11 +44,25 @@ class MiniCalcInterpreter {
         val res = MiniCalcResult()
         parseTree.lines.forEach {
             when (val stmt = it.findStatement()) {
+                is MiniCalcParser.VarDeclarationStatementContext -> {
+                    val assignment = stmt.findVarDeclaration()!!.findAssignment()!!
+                    vars[assignment.ID()!!.text] = evaluate(assignment.findExpression()!!)
+                }
                 else -> TODO("Unsupported statement: $stmt")
             }
         }
+        res.vars = vars
         return res
+    }
+
+    private fun evaluate(expression: MiniCalcParser.ExpressionContext): Any {
+        return when (expression) {
+            is MiniCalcParser.IntLiteralContext -> expression.INTLIT()!!.text.toInt()
+            else -> TODO("Unsupported expression: $expression")
+        }
     }
 }
 
-data class MiniCalcResult(val prints: MutableList<String> = mutableListOf())
+data class MiniCalcResult(
+    var vars: MutableMap<String, Any> = mutableMapOf(),
+    val prints: MutableList<String> = mutableListOf())

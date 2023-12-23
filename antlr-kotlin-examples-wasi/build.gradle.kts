@@ -25,6 +25,8 @@ kotlin {
         browser()
     }
 
+    jvm()
+
     sourceSets {
         val commonMain by getting {
             kotlin {
