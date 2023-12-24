@@ -6,6 +6,7 @@ import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 plugins {
     kotlin("multiplatform")
     id("com.strumenta.antlr-kotlin") version "0.1.0-RC13"
+    id("dev.petuska.npm.publish") version "3.4.1"
 }
 
 val antlrKotlinVersion = extra["antlrKotlinVersion"]
@@ -16,20 +17,21 @@ repositories {
 }
 
 kotlin {
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmWasi {
-        //nodejs()
-        binaries.executable()
-
-    }
-
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmJs {
-        browser()
-    }
+//    @OptIn(ExperimentalWasmDsl::class)
+//    wasmWasi {
+//        //nodejs()
+//        binaries.executable()
+//
+//    }
+//
+//    @OptIn(ExperimentalWasmDsl::class)
+//    wasmJs {
+//        browser()
+//    }
 
     js {
         browser()
+        binaries.library()
         generateTypeScriptDefinitions()
     }
 
@@ -142,4 +144,10 @@ val generateKotlinGrammarSource = tasks.register<AntlrKotlinTask>("generateKotli
 
 tasks.withType<KotlinCompile<*>> {
     dependsOn(generateKotlinGrammarSource)
+}
+
+version = "0.0.1-SNAPSHOT"
+
+npmPublish {
+
 }

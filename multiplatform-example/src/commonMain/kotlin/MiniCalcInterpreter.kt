@@ -9,9 +9,10 @@ import kotlin.js.JsExport
 
 
 @JsExport
-fun interpretSimple(code: String) : MiniCalcResult {
-    return MiniCalcInterpreter().interpret(code)
+fun interpretSimple(code: String) : String {
+    return MiniCalcInterpreter().interpret(code).toString()
 }
+
 
 class MiniCalcInterpreter {
 
@@ -69,6 +70,7 @@ class MiniCalcInterpreter {
         }
     }
 }
+
 
 data class MiniCalcResult(
     var vars: MutableMap<String, Any> = mutableMapOf(),
