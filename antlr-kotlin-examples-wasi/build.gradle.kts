@@ -2,6 +2,7 @@ import com.strumenta.antlrkotlin.gradle.AntlrKotlinTask
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.gradle.model.internal.core.ModelNodes.withType
 import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 
 plugins {
     kotlin("multiplatform")
@@ -16,11 +17,14 @@ repositories {
 }
 
 kotlin {
+    @OptIn(ExperimentalWasmDsl::class)
     wasmWasi {
         //nodejs()
         binaries.executable()
+
     }
 
+    @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         browser()
     }
