@@ -5,6 +5,13 @@ import org.antlr.v4.kotlinruntime.CharStreams
 import org.antlr.v4.kotlinruntime.CommonTokenStream
 import org.antlr.v4.kotlinruntime.RecognitionException
 import org.antlr.v4.kotlinruntime.Recognizer
+import kotlin.js.JsExport
+
+
+@JsExport
+fun interpretSimple(code: String) : MiniCalcResult {
+    return MiniCalcInterpreter().interpret(code)
+}
 
 class MiniCalcInterpreter {
 

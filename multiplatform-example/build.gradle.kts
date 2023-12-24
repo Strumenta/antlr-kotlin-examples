@@ -1,6 +1,5 @@
 import com.strumenta.antlrkotlin.gradle.AntlrKotlinTask
 import org.gradle.api.tasks.testing.logging.TestLogEvent
-import org.gradle.model.internal.core.ModelNodes.withType
 import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
 import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 
@@ -27,6 +26,11 @@ kotlin {
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         browser()
+    }
+
+    js {
+        browser()
+        generateTypeScriptDefinitions()
     }
 
     jvm()
@@ -106,14 +110,8 @@ kotlin {
 //    }
 //}
 //
-//tasks.withType<KotlinCompile<*>> {
-//    dependsOn(generateKotlinGrammarSource)
-//}
-//
-//tasks {
-//    findByName("compileTestKotlin")!!.dependsOn("generateTestGrammarSource")
-//}
-//
+
+
 tasks.withType(Test::class).all {
     testLogging {
         showStandardStreams = true
@@ -140,4 +138,8 @@ val generateKotlinGrammarSource = tasks.register<AntlrKotlinTask>("generateKotli
     // Generated files are outputted inside build/generatedAntlr/{package-name}
     val outDir = "generatedAntlr/${pkgName.replace(".", "/")}"
     outputDirectory = layout.buildDirectory.dir(outDir).get().asFile
+}
+
+tasks.withType<KotlinCompile<*>> {
+    dependsOn(generateKotlinGrammarSource)
 }
