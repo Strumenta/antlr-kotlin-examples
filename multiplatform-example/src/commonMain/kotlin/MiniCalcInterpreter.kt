@@ -8,10 +8,6 @@ import org.antlr.v4.kotlinruntime.Recognizer
 import kotlin.js.JsExport
 
 
-@JsExport
-fun interpretSimple(code: String) : String {
-    return MiniCalcInterpreter().interpret(code).toString()
-}
 
 
 class MiniCalcInterpreter {
