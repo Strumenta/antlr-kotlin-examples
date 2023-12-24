@@ -12,5 +12,5 @@ pluginManagement {
 }
 
 rootProject.name = "antlr-kotlin-examples"
-include("antlr-kotlin-examples-jvm")
-include("antlr-kotlin-examples-wasi")
+include("jvm-example")
+include("multiplatform-example")
